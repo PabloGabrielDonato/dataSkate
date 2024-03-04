@@ -1,4 +1,4 @@
-<?php include('modulos/encabezado_user_admin.php'); ?>
+<?php include('../../modulos/encabezado_user_admin.php'); ?>
 
 
 <!DOCTYPE html>
@@ -20,18 +20,18 @@
   <!-- Boostrap Style -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- vendor css -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-  <link rel="stylesheet" href="assets/css/stylesplus.css" />
+  <link rel="stylesheet" href="../../assets/css/stylesplus.css" />
   <!-- fontawesome PRO -->
-  <script src="fw_pro.js" crossorigin="anonymous"></script>
+  <script src="../../fw_pro.js" crossorigin="anonymous"></script>
   <!-- DataTable -->
   <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" />
   <!-- Sweet Alert2 -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="shortcut icon" href="assets/logoDataSkt.png">
+  <link rel="shortcut icon" href="../../assets/logoDataSkt.png">
   <title>Rioplatense - Instituciones</title>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -67,15 +67,15 @@
 <body class="">
 
   <!-- [ Header ] start -->
-  <?php include('modulos/header.php'); ?>
+  <?php include('../../modulos/header.php'); ?>
   <!-- [ Header ] end -->
 
   <!-- [ navigation menu ] start -->
-  <?php include('modulos/navmenu_tablas.php'); ?>
+  <?php include('../../modulos/navmenu_tablas.php'); ?>
   <!-- [ navigation menu ] end -->
 
   <!-- LOGOUT MPODAL-->
-  <?php include('modulos/logout.php'); ?>
+  <?php include('../../modulos/logout.php'); ?>
   <!-- End LOGOUT -->
 
   <!-- [ Main Content ] start -->
@@ -340,15 +340,15 @@
   <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 
   <!-- Required Js -->
-  <script src="assets/js/vendor-all.min.js"></script>
-  <script src="assets/js/plugins/bootstrap.min.js"></script>
-  <script src="assets/js/pcoded.min.js"></script>
+  <script src="../../assets/js/vendor-all.min.js"></script>
+  <script src="../../assets/js/plugins/bootstrap.min.js"></script>
+  <script src="../../assets/js/pcoded.min.js"></script>
 
   <!-- Apex Chart -->
-  <script src="assets/js/plugins/apexcharts.min.js"></script>
+  <script src="../../assets/js/plugins/apexcharts.min.js"></script>
 
   <!-- custom-chart js -->
-  <script src="assets/js/pages/dashboard-main.js"></script>
+  <script src="../../assets/js/pages/dashboard-main.js"></script>
 
   <!-- Datatable -->
   <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
@@ -366,11 +366,11 @@
   <!-- Boostrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- <script src="js/lecturaTabla_general.js"></script> -->
-  <script src="js/editarDatos_general.js"></script>
-  <script src="js/altas_general.js"></script>
-  <script src="js/eliminarByID.js"></script>
-  <script src="js/eliminaTodo.js"></script>
-  <script src="js/logout.js"></script>
+  <script src="../../js/editarDatos_general.js"></script>
+  <script src="../../js/altas_general.js"></script>
+  <script src="../../js/eliminarByID.js"></script>
+  <script src="../../js/eliminaTodo.js"></script>
+  <script src="../../js/logout.js"></script>
 
   <script>
     var id = 0;
@@ -389,7 +389,7 @@
       table = $("#tablaClientes").DataTable({
         ajax: {
           method: "GET",
-          url: "api/clubs.php",
+          url: "../../api/clubs.php",
           data: {
             opcion: opcion
           },
@@ -553,7 +553,7 @@
       });
       // consulta a base de datos según ID y opcion
       fetch(
-          `api/clubs.php?id=${id}&opcion=${opcion}`, {
+          `../../api/clubs.php?id=${id}&opcion=${opcion}`, {
             method: 'GET',
             headers: {
               Accept: "application/json",
@@ -595,18 +595,18 @@
     // === FIN CONSULTAR DATOS ===
 
     // === ACTUALIZA LOS DATOS en la BD ===
-    var urlEdit = 'api/clubs.php';
+    var urlEdit = '../../api/clubs.php';
     // === FIN ACTUALIZAR DATOS ===
 
     // === ALTAS ===
-    var urlAlta = 'api/clubs.php';
+    var urlAlta = '../../api/clubs.php';
     // === FIN Alta USUARIO ===
 
     // === Muestra el MODAL con la información de REGISTRO DE INSTITUCIONES ===
     //  === MUESTRA DATOS DEL CLUB ===
     function registroInstituciones(id) {
       opcion = 6;
-      fetch(`api/clubs.php?id=${id}&opcion=${opcion}`, {
+      fetch(`../../api/clubs.php?id=${id}&opcion=${opcion}`, {
           method: "GET",
           headers: {
             Accept: "application/json",
@@ -642,7 +642,7 @@
     // === MUESTRA DATOS DE LOS TECNICOS ===
     function registroTecnicos(id) {
       opcion = 7;
-      fetch(`api/clubs.php?id=${id}&opcion=${opcion}`, {
+      fetch(`../../api/clubs.php?id=${id}&opcion=${opcion}`, {
           method: "GET",
           headers: {
             Accept: "application/json",
@@ -679,7 +679,7 @@
     // === MUESTRA DATOS DE LOS DELEGADOS ===
     function registroDelegados(id) {
       opcion = 8;
-      fetch(`api/clubs.php?id=${id}&opcion=${opcion}`, {
+      fetch(`../../api/clubs.php?id=${id}&opcion=${opcion}`, {
           method: "GET",
           headers: {
             Accept: "application/json",
@@ -717,7 +717,7 @@
     // === MUESTRA DATOS DE EMPADRONADOS ===
     function cantidadEmpadronados(cuit) {
       opcion = 9;
-      fetch(`api/clubs.php?cuit=${cuit}&opcion=${opcion}`, {
+      fetch(`../../api/clubs.php?cuit=${cuit}&opcion=${opcion}`, {
           method: "GET",
           headers: {
             Accept: "application/json",
@@ -733,7 +733,7 @@
 
     function licenciasEmpadronados(cuit) {
       opcion = 10;
-      fetch(`api/clubs.php?cuit=${cuit}&opcion=${opcion}`, {
+      fetch(`../../api/clubs.php?cuit=${cuit}&opcion=${opcion}`, {
           method: "GET",
           headers: {
             Accept: "application/json",
@@ -757,7 +757,7 @@
     // === MUESTRA CNTIDADA DE PATINADORES EN BUENA FE ===
     function cantidadBuenaFe(cuit) {
       opcion = 11;
-      fetch(`api/clubs.php?cuit=${cuit}&opcion=${opcion}`, {
+      fetch(`../../api/clubs.php?cuit=${cuit}&opcion=${opcion}`, {
           method: "GET",
           headers: {
             Accept: "application/json",
@@ -773,7 +773,7 @@
 
     function patinadoresPorTorneo(cuit) {
       opcion = 12;
-      fetch(`api/clubs.php?cuit=${cuit}&opcion=${opcion}`, {
+      fetch(`../../api/clubs.php?cuit=${cuit}&opcion=${opcion}`, {
           method: "GET",
           headers: {
             Accept: "application/json",

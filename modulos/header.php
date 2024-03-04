@@ -4,7 +4,7 @@
         <a href="#" class="b-brand">
             <!-- ========   change your logo hear   ============ -->
             <!-- <img src="assets/logoDataSkt.png" alt="" class="logo" style="width: 22%;" /> -->
-            <img src="assets/rio_logo.png" alt="logoDonatware1" class="logo" style="width: 22%;" />
+            <img src="../../assets/rio_logo.png" alt="logoDonatware1" class="logo" style="width: 22%;" />
             <h1 class="logo">RIO</h1>
         </a>
         <a href="#" class="mob-toggler">
@@ -12,7 +12,7 @@
         </a>
     </div>
     <div class="collapse navbar-collapse text-center">
-        <img src="assets/dataSkate_gris.png" style="width: 20%;" class="mx-auto">
+        <img src="../../assets/dataSkate_gris.png" style="width: 20%;" class="mx-auto">
         <ul class="navbar-nav ml-auto">
             <!-- verifica si es administrador para mostrar el aviso -->
             <?php if ($user['acceso'] == 'administrador') { ?>

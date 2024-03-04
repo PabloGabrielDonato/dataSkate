@@ -47,7 +47,7 @@ if (!empty($_POST['dni']) && !empty($_POST['password'])) {
       //Direcciona a la pagina HOME
       if ($user['acceso'] == 'administrador') {
         // header("Location: /newproyect_Rio_v1/home.php");
-        header("Location: home.php");
+        header("Location: admin/views/home.php");
       } else {
         header("Location: users_home.php");
       }

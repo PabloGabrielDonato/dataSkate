@@ -6,58 +6,58 @@ function eliminarCliente(id) {
   // selecciona URL según tabla ===
   switch (tabla) {
     case "afiliacionclub":
-      urlDeleteID = `api/afiliacionclub.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/afiliacionclub.php?id=${id}&opcion=${opcion}`;
       break;
     case "categoria":
-      urlDeleteID = `api/categorias.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/categorias.php?id=${id}&opcion=${opcion}`;
       break;
     case "disciplina":
-      urlDeleteID = `api/disciplinas.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/disciplinas.php?id=${id}&opcion=${opcion}`;
       break;
     case "divisional":
-      urlDeleteID = `api/divisional.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/divisional.php?id=${id}&opcion=${opcion}`;
       break;
     case "eficiencia":
-      urlDeleteID = `api/eficiencia.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/eficiencia.php?id=${id}&opcion=${opcion}`;
       break;
     case "licencias":
-      urlDeleteID = `api/licencias.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/licencias.php?id=${id}&opcion=${opcion}`;
       break;
     case "torneos":
-      urlDeleteID = `api/torneos.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/torneos.php?id=${id}&opcion=${opcion}`;
       break;
     case "tecnicos":
-      urlDeleteID = `api/tecnicos.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/tecnicos.php?id=${id}&opcion=${opcion}`;
       break;
     case "institucion":
-      urlDeleteID = `api/clubs.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/clubs.php?id=${id}&opcion=${opcion}`;
       break;
     case "usuarios":
-      urlDeleteID = `api/users.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/users.php?id=${id}&opcion=${opcion}`;
       break;
     case "padron":
-      urlDeleteID = `api/padron.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/padron.php?id=${id}&opcion=${opcion}`;
       break;
     case "gestionBuenaFe":
-      urlDeleteID = `api/buenafe.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/buenafe.php?id=${id}&opcion=${opcion}`;
       break;
     case "podios":
-      urlDeleteID = `api/podios.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/podios.php?id=${id}&opcion=${opcion}`;
       break;
     case "ctacte":
-      urlDeleteID = `api/ctacte.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/ctacte.php?id=${id}&opcion=${opcion}`;
       break;
     case "delegados":
-      urlDeleteID = `api/delegados.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/delegados.php?id=${id}&opcion=${opcion}`;
       break;
     case "pre_padron":
-      urlDeleteID = `api/pre_padron.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/pre_padron.php?id=${id}&opcion=${opcion}`;
       break;
     case "pre_gestionBuenaFe":
-      urlDeleteID = `api/pre_buenafe.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/pre_buenafe.php?id=${id}&opcion=${opcion}`;
       break;
     case "tabla_relaciones":
-      urlDeleteID = `api/relaciones.php?id=${id}&opcion=${opcion}`;
+      urlDeleteID = `../../api/relaciones.php?id=${id}&opcion=${opcion}`;
       break;
   }
 
@@ -169,55 +169,55 @@ function eliminarCliente(id) {
           // selecciona URL según tabla ===
           switch (tabla) {
             case "afiliacionclub":
-              urlDeleteID = `api/afiliacionclub.php?id=${id}&opcion=${opcion}`;
+              urlDeleteID = `../../api/afiliacionclub.php?id=${id}&opcion=${opcion}`;
               break;
             case "categoria":
-              urlDeleteID = `api/categorias.php?id=${id}&opcion=${opcion}`;
+              urlDeleteID = `../../api/categorias.php?id=${id}&opcion=${opcion}`;
               break;
             case "disciplina":
-              urlDeleteID = `api/disciplinas.php?id=${id}&opcion=${opcion}`;
+              urlDeleteID = `../../api/disciplinas.php?id=${id}&opcion=${opcion}`;
               break;
             case "divisional":
-              urlDeleteID = `api/divisional.php?id=${id}&opcion=${opcion}`;
+              urlDeleteID = `../../api/divisional.php?id=${id}&opcion=${opcion}`;
               break;
             case "eficiencia":
-              urlDeleteID = `api/eficiencia.php?id=${id}&opcion=${opcion}`;
+              urlDeleteID = `../../api/eficiencia.php?id=${id}&opcion=${opcion}`;
               break;
             case "licencias":
-              urlDeleteID = `api/licencias.php?id=${id}&opcion=${opcion}`;
+              urlDeleteID = `../../api/licencias.php?id=${id}&opcion=${opcion}`;
               break;
             case "torneos":
-              urlDeleteID = `api/torneos.php?id=${id}&opcion=${opcion}`;
+              urlDeleteID = `../../api/torneos.php?id=${id}&opcion=${opcion}`;
               break;
             case "tecnicos":
-              urlDeleteID = `api/tecnicos.php?id=${id}&opcion=${opcion}`;
+              urlDeleteID = `../../api/tecnicos.php?id=${id}&opcion=${opcion}`;
               break;
             case "institucion":
-              urlDeleteID = `api/clubs.php?id=${id}&opcion=${opcion}`;
+              urlDeleteID = `../../api/clubs.php?id=${id}&opcion=${opcion}`;
               break;
             case "usuarios":
-              urlDeleteID = `api/users.php?id=${id}&opcion=${opcion}`;
+              urlDeleteID = `../../api/users.php?id=${id}&opcion=${opcion}`;
               break;
             case "padron":
-              urlDeleteID = `api/padron.php?id=${id}&opcion=${opcion}`;
+              urlDeleteID = `../../api/padron.php?id=${id}&opcion=${opcion}`;
               break;
             case "gestionBuenaFe":
-              urlDeleteID = `api/buenafe.php?id=${id}&opcion=${opcion}`;
+              urlDeleteID = `../../api/buenafe.php?id=${id}&opcion=${opcion}`;
               break;
             case "podios":
-              urlDeleteID = `api/podios.php?id=${id}&opcion=${opcion}`;
+              urlDeleteID = `../../api/podios.php?id=${id}&opcion=${opcion}`;
               break;
             case "delegados":
-              urlDeleteID = `api/delegados.php?id=${id}&opcion=${opcion}`;
+              urlDeleteID = `../../api/delegados.php?id=${id}&opcion=${opcion}`;
               break;
             case "pre_padron":
               urlDeleteID = `api/pre_padron.php?id=${id}&opcion=${opcion}`;
               break;
             case "pre_gestionBuenaFe":
-              urlDeleteID = `api/pre_buenafe.php?id=${id}&opcion=${opcion}`;
+              urlDeleteID = `../../api/pre_buenafe.php?id=${id}&opcion=${opcion}`;
               break;
             case "tabla_relaciones":
-              urlDeleteID = `api/relaciones.php?id=${id}&opcion=${opcion}`;
+              urlDeleteID = `../../api/relaciones.php?id=${id}&opcion=${opcion}`;
               break;
           }
           // FIN seleccion URL
