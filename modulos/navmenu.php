@@ -158,7 +158,7 @@
                                     <span class="pcoded-mtext">BACKUP</span>
                                 </a>
                                 <ul class="pcoded-submenu">
-                                    <li><a href="Bkp_BD/index.php">Backup/Restore</a></li>
+                                    <li><a href="../../Bkp_BD/index.php">Backup/Restore</a></li>
                                 </ul>
                             </li>
                         </ul>

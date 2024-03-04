@@ -1,5 +1,5 @@
 <?php
-include('modulos/encabezado_user_admin.php');
+include('../../modulos/encabezado_user_admin.php');
 
 //--------- Cnatidad de patinadores por Club --------------
 $sql = "SELECT clubs.institucion, COUNT(patinadores.dnipatinador) AS cantidad FROM patinadores, clubs WHERE patinadores.cuit=clubs.cuit GROUP BY institucion";
@@ -144,18 +144,18 @@ mysqli_close($conexion);
   <!-- Boostrap Style -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- vendor css -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
   <!-- CSS adicional - propio -->
-  <link rel="stylesheet" href="assets/css/stylesplus.css" />
+  <link rel="stylesheet" href="../../assets/css/stylesplus.css" />
   <!-- fontawesome PRO -->
-  <script src="fw_pro.js" crossorigin="anonymous"></script>
+  <script src="../../fw_pro.js" crossorigin="anonymous"></script>
   <!-- DataTable -->
   <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" />
   <!-- Sweet Alert2 -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="shortcut icon" href="assets/rio_logo.png">
+  <link rel="shortcut icon" href="../../assets/rio_logo.png">
   <title>Rioplatense - Graficas</title>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -193,15 +193,15 @@ mysqli_close($conexion);
 <body class="">
 
   <!-- [ Header ] start -->
-  <?php include('modulos/header.php'); ?>
+  <?php include('../../modulos/header.php'); ?>
   <!-- [ Header ] end -->
 
   <!-- [ navigation menu ] start -->
-  <?php include('modulos/navmenu_tablas.php'); ?>
+  <?php include('../../modulos/navmenu_tablas.php'); ?>
   <!-- [ navigation menu ] end -->
 
   <!-- LOGOUT MPODAL-->
-  <?php include('modulos/logout.php'); ?>
+  <?php include('../../modulos/logout.php'); ?>
   <!-- End LOGOUT -->
 
   <!-- [ Main Content ] start -->
@@ -302,9 +302,9 @@ mysqli_close($conexion);
   <!-- Boostrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Required Js -->
-  <script src="assets/js/vendor-all.min.js"></script>
-  <script src="assets/js/plugins/bootstrap.min.js"></script>
-  <script src="assets/js/pcoded.min.js"></script>
+  <script src="../../assets/js/vendor-all.min.js"></script>
+  <script src="../../assets/js/plugins/bootstrap.min.js"></script>
+  <script src="../../assets/js/pcoded.min.js"></script>
 
   <!-- Apex Chart -->
   <!-- <script src="assets/js/plugins/apexcharts.min.js"></script> -->
@@ -312,9 +312,9 @@ mysqli_close($conexion);
   <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 
   <!-- custom-chart js -->
-  <script src="assets/js/pages/dashboard-main.js"></script>
+  <script src="../../assets/js/pages/dashboard-main.js"></script>
 
-  <script src="js/logout.js"></script>
+  <script src="../../js/logout.js"></script>
 
   <script>
     // $(document).ready(function() {
@@ -580,7 +580,7 @@ mysqli_close($conexion);
       var podiosanuales = $("#podioAnual").val()
 
       $.ajax({
-        url: 'api/graficos.php',
+        url: '../../api/graficos.php',
         type: 'POST',
         data: {
           podiosanuales

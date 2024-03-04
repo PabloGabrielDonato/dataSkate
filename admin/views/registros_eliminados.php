@@ -1,4 +1,4 @@
-<?php include('modulos/encabezado_user_admin.php'); ?>
+<?php include('../../modulos/encabezado_user_admin.php'); ?>
 
 
 <!DOCTYPE html>
@@ -20,13 +20,13 @@
   <!-- Boostrap Style -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- vendor css -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
   <!-- CSS adicional - propio -->
-  <link rel="stylesheet" href="assets/css/stylesplus.css" />
+  <link rel="stylesheet" href="../../assets/css/stylesplus.css" />
   <!-- CSS loading -->
-  <link rel="stylesheet" href="assets/css/loading.css" />
+  <link rel="stylesheet" href="../../assets/css/loading.css" />
   <!-- fontawesome PRO -->
-  <script src="fw_pro.js" crossorigin="anonymous"></script>
+  <script src="../../fw_pro.js" crossorigin="anonymous"></script>
   <!-- DataTable -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/searchpanes/2.1.0/css/searchPanes.dataTables.min.css">
@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/rowgroup/1.3.0/css/rowGroup.dataTables.min.css">
   <!-- Sweet Alert2 -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="shortcut icon" href="assets/rio_logo.png">
+  <link rel="shortcut icon" href="../../assets/rio_logo.png">
   <title>Rioplatense - Registro Eliminados</title>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -76,15 +76,15 @@
 <body class="">
 
   <!-- [ Header ] start -->
-  <?php include('modulos/header.php'); ?>
+  <?php include('../../modulos/header.php'); ?>
   <!-- [ Header ] end -->
 
   <!-- [ navigation menu ] start -->
-  <?php include('modulos/navmenu_tablas.php'); ?>
+  <?php include('../../modulos/navmenu_tablas.php'); ?>
   <!-- [ navigation menu ] end -->
 
-  <!-- LOGOUT MPODAL-->
-  <?php include('modulos/logout.php'); ?>
+  <!-- LOGOUT MODAL-->
+  <?php include('../../modulos/logout.php'); ?>
   <!-- End LOGOUT -->
 
   <!-- toma el tipo de acceso y password del usuario -->
@@ -169,13 +169,13 @@
   <!-- Boostrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Required Js -->
-  <script src="assets/js/vendor-all.min.js"></script>
-  <script src="assets/js/plugins/bootstrap.min.js"></script>
-  <script src="assets/js/pcoded.min.js"></script>
+  <script src="../../assets/js/vendor-all.min.js"></script>
+  <script src="../../assets/js/plugins/bootstrap.min.js"></script>
+  <script src="../../assets/js/pcoded.min.js"></script>
   <!-- Apex Chart -->
-  <script src="assets/js/plugins/apexcharts.min.js"></script>
+  <script src="../../assets/js/plugins/apexcharts.min.js"></script>
   <!-- custom-chart js -->
-  <script src="assets/js/pages/dashboard-main.js"></script>
+  <script src="../../assets/js/pages/dashboard-main.js"></script>
   <!-- Datatable -->
   <!-- libreria para mover columnas -->
   <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
@@ -193,7 +193,7 @@
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
 
-  <script src="js/logout.js"></script>
+  <script src="../../js/logout.js"></script>
   <!-- Elimar Todo se ejev¿cuta desde esta pagina -->
 
   <script>
@@ -204,7 +204,7 @@
     $(document).ready(function() {
       opcion = 0
       // Tabla Responsive y Exporta la tabla a EXCEL, PDF y PRINT
-      fetch(`api/registros_recicled.php?opcion=${opcion}`, {
+      fetch(`../../api/registros_recicled.php?opcion=${opcion}`, {
           method: "GET",
           headers: {
             Accept: "application/json",
@@ -332,7 +332,7 @@
         });
       } else {
         fetch(
-            `api/registros_recicled.php?opcion=${opcion}&yearbaja=${yearbaja}`, {
+            `../../api/registros_recicled.php?opcion=${opcion}&yearbaja=${yearbaja}`, {
               method: 'GET',
               headers: {
                 Accept: "application/json",
