@@ -1,5 +1,5 @@
 <?php
-include('modulos/encabezado_user.php');
+include('../../modulos/encabezado_user.php');
 
 // Saldo de Cta Cte
 $sql = "SELECT SUM(ctacte.adeudado - ctacte.pagado) AS saldo FROM ctacte WHERE ctacte.cuit= $valorCuit GROUP BY ctacte.cuit";
@@ -52,20 +52,20 @@ mysqli_close($conexion);
   <!-- Boostrap Style -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Favicon icon -->
-  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon" />
   <!-- vendor css -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="stylesheet" href="assets/css/stylesplus.css" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <link rel="stylesheet" href="../../assets/css/stylesplus.css" />
   <!-- Boostrap Style -->
   <!-- <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css"> -->
   <!-- fontawesome PRO -->
-  <script src="fw_pro.js" crossorigin="anonymous"></script>
+  <script src="../../fw_pro.js" crossorigin="anonymous"></script>
   <!-- DataTable -->
   <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css" rel="stylesheet" />
   <!-- Sweet Alert2 -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="shortcut icon" href="assets/rio_logo.png">
+  <link rel="shortcut icon" href="../../assets/rio_logo.png">
   <title>Rioplatense - Home usuarios</title>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -124,15 +124,15 @@ mysqli_close($conexion);
 <body class="">
 
   <!-- [ Header ] start -->
-  <?php include('modulos/header.php') ?>
+  <?php include('../../modulos/header.php') ?>
   <!-- [ Header ] end -->
 
   <!-- [ navigation menu ] start -->
-  <?php include('modulos/navmenu.php') ?>
+  <?php include('../../modulos/navmenu.php') ?>
   <!-- [ navigation menu ] end -->
 
   <!-- LOGOUT MPODAL-->
-  <?php include('modulos/logout.php'); ?>
+  <?php include('../../modulos/logout.php'); ?>
   <!-- End LOGOUT -->
 
 
@@ -214,10 +214,10 @@ mysqli_close($conexion);
   <!-- Boostrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Required Js -->
-  <script src="assets/js/vendor-all.min.js"></script>
-  <script src="assets/js/plugins/bootstrap.min.js"></script>
-  <script src="assets/js/pcoded.min.js"></script>
-  <script src="js/logout.js"></script>
+  <script src="../../assets/js/vendor-all.min.js"></script>
+  <script src="../../assets/js/plugins/bootstrap.min.js"></script>
+  <script src="../../assets/js/pcoded.min.js"></script>
+  <script src="../../js/logout.js"></script>
 
   <script>
     function logoutModal() {

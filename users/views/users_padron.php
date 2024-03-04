@@ -1,4 +1,4 @@
-<?php include('modulos/encabezado_user.php');
+<?php include('../../modulos/encabezado_user.php');
 
 $records = $conn->prepare('SELECT * FROM estadopadron');
 $records->execute();
@@ -30,13 +30,13 @@ if (count($results1) > 0) {
   <!-- Boostrap Style -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- vendor css -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
   <!-- CSS adicional - propio -->
-  <link rel="stylesheet" href="assets/css/stylesplus.css" />
+  <link rel="stylesheet" href="../../assets/css/stylesplus.css" />
   <!-- CSS loading -->
-  <link rel="stylesheet" href="assets/css/loading.css" />
+  <link rel="stylesheet" href="../../assets/css/loading.css" />
   <!-- fontawesome PRO -->
-  <script src="fw_pro.js" crossorigin="anonymous"></script>
+  <script src="../../fw_pro.js" crossorigin="anonymous"></script>
   <!-- DataTable -->
   <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />
@@ -49,7 +49,7 @@ if (count($results1) > 0) {
 
   <!-- Sweet Alert2 -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="shortcut icon" href="assets/rio_logo.png">
+  <link rel="shortcut icon" href="../../assets/rio_logo.png">
   <title>Rioplatense - Padrón Usuarios</title>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -126,19 +126,19 @@ if (count($results1) > 0) {
 <body class="">
 
   <!-- [ Header ] start -->
-  <?php include('modulos/header.php'); ?>
+  <?php include('../../modulos/header.php'); ?>
   <!-- [ Header ] end -->
 
   <!-- [ navigation menu ] start -->
-  <?php include('modulos/navmenu_tablas.php'); ?>
+  <?php include('../../modulos/navmenu_tablas.php'); ?>
   <!-- [ navigation menu ] end -->
 
   <!-- LOGOUT MPODAL-->
-  <?php include('modulos/logout.php'); ?>
+  <?php include('../../modulos/logout.php'); ?>
   <!-- End LOGOUT -->
 
   <!-- LOADING -->
-  <?php include('modulos/loading.php'); ?>
+  <?php include('../../modulos/loading.php'); ?>
   <!-- END LOADING -->
 
   <!-- [ Main Content ] start -->
@@ -416,13 +416,13 @@ if (count($results1) > 0) {
   <!-- Boostrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Required Js -->
-  <script src="assets/js/vendor-all.min.js"></script>
-  <script src="assets/js/plugins/bootstrap.min.js"></script>
-  <script src="assets/js/pcoded.min.js"></script>
+  <script src="../../assets/js/vendor-all.min.js"></script>
+  <script src="../../assets/js/plugins/bootstrap.min.js"></script>
+  <script src="../../assets/js/pcoded.min.js"></script>
   <!-- Apex Chart -->
-  <script src="assets/js/plugins/apexcharts.min.js"></script>
+  <script src="../../assets/js/plugins/apexcharts.min.js"></script>
   <!-- custom-chart js -->
-  <script src="assets/js/pages/dashboard-main.js"></script>
+  <script src="../../assets/js/pages/dashboard-main.js"></script>
   <!-- Datatable -->
   <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
@@ -468,7 +468,7 @@ if (count($results1) > 0) {
       table = $("#tablaClientes").DataTable({
         ajax: {
           method: "GET",
-          url: "api/padron.php",
+          url: "../../api/padron.php",
           data: {
             opcion: opcion
           },
@@ -677,7 +677,7 @@ if (count($results1) > 0) {
       });
       // consulta a base de datos según ID y opcion
       fetch(
-          `api/padron.php?id=${id}&opcion=${opcion}`, {
+          `../../api/padron.php?id=${id}&opcion=${opcion}`, {
             method: 'GET',
             headers: {
               Accept: "application/json",

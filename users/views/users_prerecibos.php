@@ -1,4 +1,4 @@
-<?php include('modulos/encabezado_user.php');
+<?php include('../../modulos/encabezado_user.php');
 
 if ($user['acceso'] == 'administrador') {
   header("Location: users_home.php");
@@ -25,10 +25,10 @@ if ($user['acceso'] == 'administrador') {
   <!-- Boostrap Style -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- vendor css -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="stylesheet" href="assets/css/stylesplus.css" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <link rel="stylesheet" href="../../assets/css/stylesplus.css" />
   <!-- fontawesome PRO -->
-  <script src="fw_pro.js" crossorigin="anonymous"></script>
+  <script src="../../fw_pro.js" crossorigin="anonymous"></script>
   <!-- DataTable -->
   <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css" rel="stylesheet" />
@@ -41,7 +41,7 @@ if ($user['acceso'] == 'administrador') {
 
   <!-- Sweet Alert2 -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="shortcut icon" href="assets/rio_logo.png">
+  <link rel="shortcut icon" href="../../assets/rio_logo.png">
   <title>Rioplatense - Informe de Pagos</title>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -99,15 +99,15 @@ if ($user['acceso'] == 'administrador') {
 <body class="">
 
   <!-- [ Header ] start -->
-  <?php include('modulos/header.php'); ?>
+  <?php include('../../modulos/header.php'); ?>
   <!-- [ Header ] end -->
 
   <!-- [ navigation menu ] start -->
-  <?php include('modulos/navmenu_tablas.php'); ?>
+  <?php include('../../modulos/navmenu_tablas.php'); ?>
   <!-- [ navigation menu ] end -->
 
   <!-- LOGOUT MPODAL-->
-  <?php include('modulos/logout.php'); ?>
+  <?php include('../../modulos/logout.php'); ?>
   <!-- End LOGOUT -->
 
   <!-- [ Main Content ] start -->
@@ -444,18 +444,18 @@ if ($user['acceso'] == 'administrador') {
   <!-- Boostrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Required Js -->
-  <script src="assets/js/vendor-all.min.js"></script>
-  <script src="assets/js/plugins/bootstrap.min.js"></script>
-  <script src="assets/js/pcoded.min.js"></script>
+  <script src="../../assets/js/vendor-all.min.js"></script>
+  <script src="../../assets/js/plugins/bootstrap.min.js"></script>
+  <script src="../../assets/js/pcoded.min.js"></script>
 
   <!-- Apex Chart -->
-  <script src="assets/js/plugins/apexcharts.min.js"></script>
+  <script src="../../assets/js/plugins/apexcharts.min.js"></script>
 
   <!-- custom-chart js -->
-  <script src="assets/js/pages/dashboard-main.js"></script>
+  <script src="../../assets/js/pages/dashboard-main.js"></script>
 
   <!-- Datatable -->
-  <script src="  https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
   <script src="https://cdn.datatables.net/searchpanes/2.2.0/js/dataTables.searchPanes.min.js"></script>
   <script src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script>
@@ -472,8 +472,8 @@ if ($user['acceso'] == 'administrador') {
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
 
-  <script src="js/logout.js"></script>
-  <script src="js/eliminarByID.js"></script>
+  <script src="../../js/logout.js"></script>
+  <script src="../../js/eliminarByID.js"></script>
 
   <script>
     var id = '';
@@ -501,7 +501,7 @@ if ($user['acceso'] == 'administrador') {
         destroy: true,
         ajax: {
           method: "GET",
-          url: "api/ctacte_prerecibo.php?",
+          url: "../../api/ctacte_prerecibo.php?",
           data: {
             opcion: opcion,
             cuit: cuit,
@@ -760,7 +760,7 @@ if ($user['acceso'] == 'administrador') {
 
       var datos = new FormData(formularioAlta);
       // envia los datos a crear en la base de datos
-      fetch('api/ctacte_prerecibo.php', {
+      fetch('../../api/ctacte_prerecibo.php', {
           method: "POST",
           body: datos,
           headers: {
@@ -854,7 +854,7 @@ if ($user['acceso'] == 'administrador') {
       });
       // consulta a base de datos según ID y opcion
       fetch(
-          `api/ctacte_prerecibo.php?id=${id}&opcion=${opcion}`, {
+          `../../api/ctacte_prerecibo.php?id=${id}&opcion=${opcion}`, {
             method: 'GET',
             headers: {
               Accept: "application/json",
@@ -924,7 +924,7 @@ if ($user['acceso'] == 'administrador') {
         e.preventDefault();
         var datos = new FormData(formulario);
         // envian los datos a modificar en la base de datos
-        fetch(`api/ctacte_prerecibo.php`, {
+        fetch(`../../api/ctacte_prerecibo.php`, {
             method: "POST",
             body: datos,
             headers: {
@@ -970,7 +970,7 @@ if ($user['acceso'] == 'administrador') {
     async function eliminarComprobante(id) {
       opcion = 6;
       // consulta la institución a eliminar
-      await fetch(`api/ctacte_prerecibo.php?id=${id}&opcion=${opcion}`, {
+      await fetch(`../../api/ctacte_prerecibo.php?id=${id}&opcion=${opcion}`, {
           method: "GET",
           headers: {
             Accept: "application/json",
@@ -996,7 +996,7 @@ if ($user['acceso'] == 'administrador') {
             // elimina el usuario
             if (result.isConfirmed) {
               opcion = 3;
-              fetch(`api/ctacte_prerecibo.php?id=${id}&opcion=${opcion}`, {
+              fetch(`../../api/ctacte_prerecibo.php?id=${id}&opcion=${opcion}`, {
                   method: "GET",
                   headers: {
                     Accept: "application/json",

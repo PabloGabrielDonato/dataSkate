@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require 'database.php';
+require '../../database.php';
 
 // Toma los datos del usuario para mostrar en el encabezado de la pagina
 if (isset($_SESSION['user_id'])) {

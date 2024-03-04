@@ -1,4 +1,4 @@
-<?php include('modulos/encabezado_user.php'); ?>
+<?php include('../../modulos/encabezado_user.php'); ?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -19,10 +19,10 @@
   <!-- Boostrap Style -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- vendor css -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="stylesheet" href="assets/css/stylesplus.css" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <link rel="stylesheet" href="../../assets/css/stylesplus.css" />
   <!-- fontawesome PRO -->
-  <script src="fw_pro.js" crossorigin="anonymous"></script>
+  <script src="../../fw_pro.js" crossorigin="anonymous"></script>
   <!-- DataTable -->
   <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css" rel="stylesheet" />
@@ -34,7 +34,7 @@
   <!-- <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.5.1/css/dataTables.dateTime.min.css"> -->
   <!-- Sweet Alert2 -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="shortcut icon" href="assets/rio_logo.png">
+  <link rel="shortcut icon" href="../../assets/rio_logo.png">
   <title>Rioplatense - Cta Cte usuarios</title>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -78,15 +78,15 @@
 <body class="">
 
   <!-- [ Header ] start -->
-  <?php include('modulos/header.php'); ?>
+  <?php include('../../modulos/header.php'); ?>
   <!-- [ Header ] end -->
 
   <!-- [ navigation menu ] start -->
-  <?php include('modulos/navmenu_tablas.php'); ?>
+  <?php include('../../modulos/navmenu_tablas.php'); ?>
   <!-- [ navigation menu ] end -->
 
   <!-- LOGOUT MPODAL-->
-  <?php include('modulos/logout.php'); ?>
+  <?php include('../../modulos/logout.php'); ?>
   <!-- End LOGOUT -->
 
   <!-- [ Main Content ] start -->
@@ -137,18 +137,18 @@
   <!-- Boostrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Required Js -->
-  <script src="assets/js/vendor-all.min.js"></script>
-  <script src="assets/js/plugins/bootstrap.min.js"></script>
-  <script src="assets/js/pcoded.min.js"></script>
+  <script src="../../assets/js/vendor-all.min.js"></script>
+  <script src="../../assets/js/plugins/bootstrap.min.js"></script>
+  <script src="../../assets/js/pcoded.min.js"></script>
 
   <!-- Apex Chart -->
-  <script src="assets/js/plugins/apexcharts.min.js"></script>
+  <script src="../../assets/js/plugins/apexcharts.min.js"></script>
 
   <!-- custom-chart js -->
-  <script src="assets/js/pages/dashboard-main.js"></script>
+  <script src="../../assets/js/pages/dashboard-main.js"></script>
 
   <!-- Datatable -->
-  <script src="  https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
   <script src="https://cdn.datatables.net/searchpanes/2.2.0/js/dataTables.searchPanes.min.js"></script>
   <script src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script>
@@ -165,7 +165,7 @@
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
 
-  <script src="js/logout.js"></script>
+  <script src="../../js/logout.js"></script>
 
 
   <script>
@@ -193,7 +193,7 @@
         destroy: true,
         ajax: {
           method: "GET",
-          url: "api/ctacte.php?",
+          url: "../../api/ctacte.php?",
           data: {
             opcion: opcion,
             cuit: cuit,
@@ -393,7 +393,7 @@
     function consultarSaldo() {
       opcion = 2;
       fetch(
-          `api/ctacte.php?cuit=${cuit}&opcion=${opcion}`, {
+          `../../api/ctacte.php?cuit=${cuit}&opcion=${opcion}`, {
             method: 'GET',
             headers: {
               Accept: "application/json",

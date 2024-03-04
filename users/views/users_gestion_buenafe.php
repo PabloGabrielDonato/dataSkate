@@ -1,4 +1,4 @@
-<?php include('modulos/encabezado_user.php'); ?>
+<?php include('../../modulos/encabezado_user.php'); ?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -19,13 +19,13 @@
   <!-- Boostrap Style -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- vendor css -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
   <!-- CSS adicional - propio -->
-  <link rel="stylesheet" href="assets/css/stylesplus.css" />
+  <link rel="stylesheet" href="../../assets/css/stylesplus.css" />
   <!-- CSS loading -->
-  <link rel="stylesheet" href="assets/css/loading.css" />
+  <link rel="stylesheet" href="../../assets/css/loading.css" />
   <!-- fontawesome PRO -->
-  <script src="fw_pro.js" crossorigin="anonymous"></script>
+  <script src="../../fw_pro.js" crossorigin="anonymous"></script>
   <!-- DataTable -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/searchpanes/2.1.0/css/searchPanes.dataTables.min.css">
@@ -38,8 +38,8 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/searchbuilder/1.4.0/css/searchBuilder.dataTables.min.css">
   <!-- Sweet Alert2 -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="shortcut icon" href="assets/rio_logo.png">
-  <title>Rioplatense - Inscripciones Provisoria usuarios</title>
+  <link rel="shortcut icon" href="../../assets/logoDataSkt.png">
+  <title>Rioplatense - Inscripciones usuarios</title>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2EWVRJMP3Q"></script>
@@ -53,7 +53,6 @@
 
   gtag('config', 'G-2EWVRJMP3Q');
 </script>
-
 
 <!-- Estilos para esta pagina -->
 <style>
@@ -73,7 +72,7 @@
 
   /* estilo renglones tabla */
   td {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   input,
@@ -132,26 +131,25 @@
 <body class="">
 
   <!-- [ Header ] start -->
-  <?php include('modulos/header.php'); ?>
+  <?php include('../../modulos/header.php'); ?>
   <!-- [ Header ] end -->
 
   <!-- [ navigation menu ] start -->
-  <?php include('modulos/navmenu_tablas.php'); ?>
+  <?php include('../../modulos/navmenu_tablas.php'); ?>
   <!-- [ navigation menu ] end -->
 
   <!-- LOGOUT MPODAL-->
-  <?php include('modulos/logout.php'); ?>
+  <?php include('../../modulos/logout.php'); ?>
   <!-- End LOGOUT -->
 
   <!-- LOADING -->
-  <?php include('modulos/loading.php'); ?>
+  <?php include('../../modulos/loading.php'); ?>
   <!-- END LOADING -->
 
   <!-- [ Main Content ] start -->
   <div class="pcoded-main-container mt-4">
     <div class="text-center">
-      <h1>Inscripciones Provisorias: <?php echo $user['institucion'] ?></h1>
-      <h4 class="saldoTexto p-3"></h4>
+      <h1>Inscripciones: <?php echo $user['institucion'] ?></h1>
     </div>
 
     <!-- toma el tipo de acceso y password del usuario -->
@@ -165,18 +163,14 @@
     <!-- local -->
     <div class="col-lg-12 row mb-0 mt-4 pb-2" id="altaExcel">
       <!-- Filtros y Grupos de la Tabla -->
-      <div class="form-row col-md-6 m-0">
+      <div class="form-row col-md-3 m-0">
         <div class="form-group mb-0">
           <button class="btn btn-secondary mostrarFiltros" id="mostrarFiltros" name="filtros" onclick="mostrarFiltros()" title="Filtros DESACTIVADOS"><i class="fas fa-filter"></i></button>
           <button class="btn btn-success ocultarFiltros" id="ocultarFiltros" name="filtros" onclick="ocultarFiltros()" title="Filtros ACTIVADOS"><i class="fas fa-filter"></i></button>
         </div>
-        <div class="mb-3">
-          <button type=" button" class="btn btn-outline-success ml-3" onclick="limpiaForm()">Agregar</button>
-        </div>
-        <div class="mb-3">
-          <button type="button" class="btn btn-outline-info ml-3 btn-lg btn-sm" onclick="confirmarPreInscripcion()">CONFIRMAR INSCRIPCION</button>
-        </div>
+        <!-- <button type="button" class="btn btn-outline-success ml-3" onclick="limpiaForm()">Agregar</button> -->
       </div>
+
     </div>
     <!-- FIN Filtros y Grupos de la Tabla -->
 
@@ -203,7 +197,6 @@
               <th>id</th>
               <th>Estado Patinador</th>
               <th>Estado Torneo</th>
-              <th>Valor Incripción</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -318,45 +311,66 @@
                 <div class="accordion-body">
 
                   <div class="form-row">
+                    <div class="form-group col-md-6 form-floating">
+                      <select name="disciplina" class="form-control form-control-edit" id="consultarDisciplina" required>
+                        <option value=""></option>
+                        <!-- <option value="">Seleccionar Institucion</option> -->
+                        <?php
+                        $select = mysqli_query($con, "SELECT * FROM disciplinas ORDER BY disciplina");
+                        while ($opcion = mysqli_fetch_row($select)) { ?>
+                          <option value="<?php echo $opcion[1] ?>"><?php echo $opcion[1] ?></option>
+                        <?php  }
+                        ?>
+                      </select>
+                      <label for="floatingSelect">Disciplina</label>
+                    </div>
 
                     <div class="form-group col-md-6 form-floating">
-                      <select name="divisional" class="form-control form-control-edit" id="consultarDivisional" onchange="cargarConsultaOptions()" required>
+                      <select name="divisional" class="form-control form-control-edit" id="consultarDivisional" required>
                         <option value=""></option>
                         <!-- <option value="">Seleccionar Categoria</option> -->
                         <?php
-                        $select = mysqli_query($con, "SELECT relacion_tablas_ddec.id_divisional, divisional.divisional FROM relacion_tablas_ddec, divisional WHERE (divisional.id = relacion_tablas_ddec.id_divisional) GROUP BY divisional.divisional ORDER BY divisional.divisional");
+                        $select = mysqli_query($con, "SELECT * FROM divisional");
                         while ($opcion = mysqli_fetch_row($select)) { ?>
-                          <option value="<?php echo $opcion[0] ?>"><?php echo $opcion[1] ?></option>
+                          <option value="<?php echo $opcion[1] ?>"><?php echo $opcion[1] ?></option>
                         <?php  }
                         ?>
                       </select>
                       <label for="floatingSelect">Divisional</label>
                     </div>
-
-                    <div class="form-group col-md-6 form-floating">
-                      <select name="disciplina" class="form-control form-control-edit" id="consultarDisciplina" onchange="buscarConsultarEficiencia()" required>
-                      </select>
-                      <label for="floatingSelect">Disciplina</label>
-                    </div>
-
                   </div>
 
                   <div class="form-row">
                     <div class="form-group col-md-6 form-floating">
-                      <select name="eficiencia" class="form-control form-control-edit" id="consultarEficiencia" onchange="buscarConsultarCategoria()" required>
+                      <select name="eficiencia" class="form-control form-control-edit" id="consultarEficiencia" required>
+                        <option value=""></option>
+                        <!-- <option value="">Seleccionar Categoria</option> -->
+                        <?php
+                        $select = mysqli_query($con, "SELECT * FROM eficiencia ORDER BY eficiencia");
+                        while ($opcion = mysqli_fetch_row($select)) { ?>
+                          <option value="<?php echo $opcion[1] ?>"><?php echo $opcion[1] ?></option>
+                        <?php  }
+                        ?>
                       </select>
                       <label for="floatingSelect">Eficiencia</label>
                     </div>
-
                     <div class="form-group col-md-6 form-floating">
-                      <select name="categoria" class="form-control form-control-edit" id="consultarCategoria" onchange="cargarConsultarOptions()" required>
+                      <select name="categoria" class="form-control form-control-edit" id="consultarCategoria" required>
+                        <option value=""></option>
+                        <!-- <option value="">Seleccionar Categoria</option> -->
+                        <?php
+                        $select = mysqli_query($con, "SELECT * FROM categorias ORDER BY categoria");
+                        while ($opcion = mysqli_fetch_row($select)) { ?>
+                          <option value="<?php echo $opcion[1] ?>"><?php echo $opcion[1] ?></option>
+                        <?php  }
+                        ?>
                       </select>
                       <label for="floatingSelect">Categoria</label>
                     </div>
                   </div>
 
                   <div class="form-row">
-                    <div class="form-group col-md-6 form-floating">
+                    <div class="form-group col-md-12 form-floating">
                       <select name="torneo" class="form-control form-control-edit" id="consultarTorneo" required>
                         <option value=""></option>
                         <?php //Completa el SELECT on los datos de la tabla CLUBS
@@ -368,16 +382,14 @@
                       </select>
                       <label for="floatingSelect">Torneo</label>
                     </div>
-
-                    <div class="form-group col-md-6 form-floating">
-                      <input name="apagar" type="text" class="form-control inactivo" id="consultarApagar" placeholder="Valor Torneo" style="text-align: right;" />
-                      <label for="floatingInput">Valor Torneo</label>
+                    <div class="form-group col-md-3 form-floating ocultarPagos">
+                      <input name="apagar" type="number" class="form-control form-control-edit text-end" id="consultarApagar" placeholder="A pagar" required />
+                      <label for="floatingInput">A pagar</label>
                     </div>
-                  </div>
-
-                  <div class="ocultarPagos">
-                    <input name="pagado" type="number" id="consultarPagado" />
-                    <input name="apagar" type="number" id="consultarApagar2" />
+                    <div class="form-group col-md-3 form-floating ocultarPagos">
+                      <input name="pagado" type="number" class="form-control form-control-edit text-end" id="consultarPagado" placeholder="Pagado" />
+                      <label for="floatingInput">Pagado</label>
+                    </div>
                   </div>
 
                   <div class="form-group form-floating">
@@ -388,38 +400,31 @@
                 </div>
               </div>
             </div>
+
+          </div>
+          <!-- Fin acordeon -->
+
+          <div class="ocultarInputOpcion">
+            <input name="opcion" type="text" value="2">
+            <input name="estado" type="text" id="consultarEstado">
+            <input name="ordensalida" type="number" value="0">
           </div>
 
-        </div>
-        <!-- Fin acordeon -->
-
-        <div class="ocultarInputOpcion">
-          <input name="opcion" type="text" value="2">
-          <input name="estado" type="text" id="consultarEstado">
-          <input name="ordensalida" type="number" value="0">
-          <input name="pagado" type="number" value="0" />
-          <input name="dni" type="number" id="consultarDni2" />
-          <input name="divisional" type="text" id="consultarDivisional2">
-          <input name="disciplina" type="text" id="consultarDisciplina2">
-          <input name="eficiencia" type="text" id="consultarEficiencia2">
-          <input name="categoria" type="text" id="consultarCategoria2">
-        </div>
-
-        <div>
-          <label class="labelDatosAdicionales mb-1 mt-1"><b>Alta:</b>
-            <input name="datosAlta" type="text" class="datosAdicionales" id="datosAlta" disabled />
-          </label>
-          <label class="labelDatosAdicionales"><b>Ultima modificación:</b>
-            <input name="datosMod" type="text" class="datosAdicionales" id="datosMod" disabled />
-          </label>
-        </div>
-        <!-- Footer del modal -->
-        <div class="modal-footer form-row">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="botonCancel">Cancelar</button>
-          <button class="btn btn-primary btn-modificar" type="submit" id="botonAceptar">Aceptar</button>
+          <div>
+            <label class="labelDatosAdicionales mb-1 mt-1"><b>Alta:</b>
+              <input name="datosAlta" type="text" class="datosAdicionales" id="datosAlta" disabled />
+            </label>
+            <label class="labelDatosAdicionales"><b>Ultima modificación:</b>
+              <input name="datosMod" type="text" class="datosAdicionales" id="datosMod" disabled />
+            </label>
+          </div>
+          <!-- Footer del modal -->
+          <div class="modal-footer form-row">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="botonCancel">Cancelar</button>
+            <button class="btn btn-primary btn-modificar" type="submit" id="botonAceptar">Aceptar</button>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </form>
   <!-- END CONSULTA/EDICION USUARIO -->
@@ -427,7 +432,7 @@
 
   <!-- FROMULARIO MODAL ALTA USUARIOS -->
   <!-- <form class="modal fade" id="formAlta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" action="api/buenafe.php" method="POST"> -->
-  <form class="modal fade" id="formAlta" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <form class="modal fade" id="formAlta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <!-- cabecera del modal -->
@@ -524,49 +529,70 @@
                   Datos del torneo
                 </button>
               </h2>
-              <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
 
                   <div class="form-row">
-
                     <div class="form-group col-md-6 form-floating">
-                      <select name="divisional" class="form-control form-control-edit" id="altaDivisional" onchange="buscarDisciplina()" required>
+                      <select name="disciplina" class="form-control form-control-edit" id="altaDisciplina" required>
                         <option value=""></option>
+                        <!-- <option value="">Seleccionar Institucion</option> -->
                         <?php
-                        $select = mysqli_query($con, "SELECT relacion_tablas_ddec.id_divisional, divisional.divisional FROM relacion_tablas_ddec, divisional WHERE (divisional.id = relacion_tablas_ddec.id_divisional) GROUP BY divisional.divisional ORDER BY divisional.divisional");
+                        $select = mysqli_query($con, "SELECT * FROM disciplinas ORDER BY disciplina");
                         while ($opcion = mysqli_fetch_row($select)) { ?>
-                          <option value="<?php echo $opcion[0] ?>"><?php echo $opcion[1] ?></option>
+                          <option value="<?php echo $opcion[1] ?>"><?php echo $opcion[1] ?></option>
+                        <?php  }
+                        ?>
+                      </select>
+                      <label for="floatingSelect">Disciplina</label>
+                    </div>
+                    <div class="form-group col-md-6 form-floating">
+                      <select name="divisional" class="form-control form-control-edit" id="altaDivisional" required>
+                        <option value=""></option>
+                        <!-- <option value="">Seleccionar Categoria</option> -->
+                        <?php
+                        $select = mysqli_query($con, "SELECT * FROM divisional");
+                        while ($opcion = mysqli_fetch_row($select)) { ?>
+                          <option value="<?php echo $opcion[1] ?>"><?php echo $opcion[1] ?></option>
                         <?php  }
                         ?>
                       </select>
                       <label for="floatingSelect">Divisional</label>
                     </div>
-
-                    <div class="form-group col-md-6 form-floating">
-                      <select name="disciplina" class="form-control form-control-edit" id="altaDisciplina" onchange="buscarEficiencia()" required>
-                      </select>
-                      <label for="floatingSelect">Disciplina</label>
-                    </div>
-
                   </div>
 
                   <div class="form-row">
                     <div class="form-group col-md-6 form-floating">
-                      <select name="eficiencia" class="form-control form-control-edit" id="altaEficiencia" onchange="buscarCategoria()" required>
+                      <select name="eficiencia" class="form-control form-control-edit" id="altaEficiencia" required>
+                        <option value=""></option>
+                        <!-- <option value="">Seleccionar Categoria</option> -->
+                        <?php
+                        $select = mysqli_query($con, "SELECT * FROM eficiencia ORDER BY eficiencia");
+                        while ($opcion = mysqli_fetch_row($select)) { ?>
+                          <option value="<?php echo $opcion[1] ?>"><?php echo $opcion[1] ?></option>
+                        <?php  }
+                        ?>
                       </select>
                       <label for="floatingSelect">Eficiencia</label>
                     </div>
-
                     <div class="form-group col-md-6 form-floating">
-                      <select name="categoria" class="form-control form-control-edit" id="altaCategoria" onchange="cargarOptions()" required>
+                      <select name="categoria" class="form-control form-control-edit" id="altaCategoria" required>
+                        <option value=""></option>
+                        <!-- <option value="">Seleccionar Categoria</option> -->
+                        <?php
+                        $select = mysqli_query($con, "SELECT * FROM categorias ORDER BY categoria");
+                        while ($opcion = mysqli_fetch_row($select)) { ?>
+                          <option value="<?php echo $opcion[1] ?>"><?php echo $opcion[1] ?></option>
+                        <?php  }
+                        ?>
                       </select>
                       <label for="floatingSelect">Categoria</label>
                     </div>
                   </div>
 
                   <div class="form-row">
-                    <div class="form-group col-md-6 form-floating">
-                      <select name="torneo" class="form-control form-control-edit" id="altaTorneo" onchange="valorAltaTorneo()" required>
+                    <div class="form-group col-md-12 form-floating">
+                      <select name="torneo" class="form-control form-control-edit" id="altaTorneo" required>
                         <option value=""></option>
                         <?php //Completa el SELECT on los datos de la tabla CLUBS
                         $select = mysqli_query($con, "SELECT * FROM torneo WHERE estadotorneo='Abierto' ORDER BY nombretorneo");
@@ -576,11 +602,6 @@
                         <?php } ?>
                       </select>
                       <label for="floatingSelect">Torneo</label>
-                    </div>
-
-                    <div class="form-group col-md-6 form-floating">
-                      <input name="apagar" type="text" class="form-control inactivo" id="altaApagar" placeholder="Valor Torneo" style="text-align: right;" />
-                      <label for="floatingInput">Valor Torneo</label>
                     </div>
                   </div>
 
@@ -596,14 +617,9 @@
 
           <div class="ocultarInputOpcion">
             <input name="opcion" type="text" value="4">
-            <input name="apagar" type="number" id="altaApagar2">
-            <input name="pagado" type="number" value="0">
-            <input name="divisional" type="text" id="altaDivicional2">
-            <input name="disciplina" type="text" id="altaDisciplina2">
-            <input name="eficiencia" type="text" id="altaEficiencia2">
-            <input name="categoria" type="text" id="altaCategoria2">
+            <input name="apagar" type="text" value="0">
+            <input name="pagado" type="text" value="0">
           </div>
-
 
           <!-- Footer del modal -->
           <div class="modal-footer form-row">
@@ -622,13 +638,13 @@
   <!-- Boostrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Required Js -->
-  <script src="assets/js/vendor-all.min.js"></script>
-  <script src="assets/js/plugins/bootstrap.min.js"></script>
-  <script src="assets/js/pcoded.min.js"></script>
+  <script src="../../assets/js/vendor-all.min.js"></script>
+  <script src="../../assets/js/plugins/bootstrap.min.js"></script>
+  <script src="../../assets/js/pcoded.min.js"></script>
   <!-- Apex Chart -->
-  <script src="assets/js/plugins/apexcharts.min.js"></script>
+  <script src="../../assets/js/plugins/apexcharts.min.js"></script>
   <!-- custom-chart js -->
-  <script src="assets/js/pages/dashboard-main.js"></script>
+  <script src="../../assets/js/pages/dashboard-main.js"></script>
   <!-- Datatable -->
   <!-- libreria para mover columnas -->
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
@@ -647,48 +663,24 @@
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
 
-  <script src="js/relacionTablas.js"></script>
-  <script src="js/editarDatos_general.js"></script>
-  <script src="js/eliminarByID.js"></script>
+  <!-- <script src="js/lecturaTabla_general.js"></script> -->
+  <script src="../../js/editarDatos_general.js"></script>
+  <script src="../../js/eliminarByID.js"></script>
   <!-- El eliminar TODO se ejecuta desde esta pagina -->
-  <script src="js/logout.js"></script>
+  <script src="../../js/logout.js"></script>
 
   <script>
     var fila = '';
     var id = 0;
     var opcion = '';
-    var CtaCteCUIT = <?php echo $user['cuit'] ?>;
-    var tabla = 'pre_gestionBuenaFe';
+    var tabla = 'gestionBuenaFe';
     var userPass = $("#userPass").val();
     var tipoAcceso = $("#tipoAcceso").val();
-    var saldo_institucion = '';
 
     // === CARGA LA TABLA CON DATOS ===
     // Accede y vuelca los datos del array en la tabla
     $(document).ready(function() {
-      opcion = 6;
-      fetch(`api/torneos.php?opcion=${opcion}`, {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        })
-        .then((respuesta) => respuesta.json())
-        .then((datos) => {
-          if (datos == 1) {
-            listar();
-            consultarSaldo();
-          } else {
-            Swal.fire({
-              icon: 'warning',
-              title: 'Listas cerradas!',
-              text: 'No hay torneos habilitados para gestionar Inscripciones Provisorias!',
-            }).then((result) => {
-              location.href = "users_home.php";
-            });
-          }
-        });
+      listar();
     });
 
     var listar = function() {
@@ -696,7 +688,7 @@
       table = $("#tablaClientes").DataTable({
         ajax: {
           method: "GET",
-          url: "api/pre_buenafe.php",
+          url: "../../api/buenafe.php",
           data: {
             opcion: opcion
           },
@@ -753,11 +745,9 @@
             data: "estadotorneo"
           },
           {
-            data: "apagar"
+            defaultContent: "<button type='button' class='btn btn-info btn-circle btn-sm btnInfo'><i class='fas fa-info-circle'></i></button>"
           },
-          {
-            defaultContent: "<button type='button' class='btn btn-secondary btn-circle btn-sm btnConfirm'><i class='feather icon-thumbs-up'></i></button> <button type='button' class='btn btn-info btn-circle btn-sm btnInfo'><i class='fas fa-info-circle'></i></button>	<button type='button' class='btn btn-primary btn-circle btn-sm btnEdit'><i class='fas fa-edit'></i></button></button>	<button type='button' class='btn btn-danger btn-circle btn-sm btnDel'><i class='fas fa-trash'></i></button>"
-          },
+
         ],
 
         // ESTILOS DE LA TABLA
@@ -782,7 +772,7 @@
             searchPanes: {
               show: true,
             },
-            targets: [5, 6, 7, 8, 9, 10, 11, 12, 13, 17],
+            targets: [5, 6, 7, 8, 9, 10, 11, 12, 13],
           },
           {
             searchPanes: {
@@ -793,7 +783,7 @@
 
           // oculta columnas
           {
-            targets: [11, 13, 14, 15, 16],
+            targets: [11, 13, 14],
             visible: false,
           },
 
@@ -857,7 +847,7 @@
             });
           }
           if (data[3] == "**EMPADRONAR**") {
-            //pinta una fila de rojo si no esta empadronado
+            //pinta una fila
             $("td", row).css({
               "background-color": "#ff5252",
               color: "white",
@@ -865,18 +855,25 @@
               "border-color": "#bdbdbd",
             });
           }
-          if (data[17] == 0 || data[17] == '') {
-            //Pinta en rojo una celda si no esta el Valor Inscripcion
-            $("td", row).eq(12).css({
-              "background-color": "#ff5252",
+          // if (data[12] == 0) {
+          //   //Pinta en rojo una celda
+          //   $("td", row).eq(12).css({
+          //     "background-color": "#ff5252",
+          //     color: "white",
+          //   });
+          // }
+
+          //pintar una celda
+          if (data[16] == "BAJA") {
+            //pinta una fila
+            $("td", row).css({
+              "background-color": "#A9A9A9",
               color: "white",
             });
           }
-
           // Estilo a la celda
           $("td", row).eq(0).css({
             "font-size": "14px",
-            "text-align": "center",
           });
           $("td", row).eq(1).css({
             "text-align": "center",
@@ -896,10 +893,16 @@
           $("td", row).eq(7).css({
             "text-align": "center",
           });
-          $("td", row).eq(12).css({
-            "text-align": "right",
+          $("td", row).eq(11).css({
+            "text-align": "end",
           });
-          $("td", row).eq(13).css({
+          $("td", row).eq(14).css({
+            "text-align": "center",
+          });
+          $("td", row).eq(15).css({
+            "text-align": "center",
+          });
+          $("td", row).eq(16).css({
             "text-align": "center",
           });
         },
@@ -908,7 +911,6 @@
       obtener_data_editar("#tablaClientes tbody", table);
       obtener_data_info("#tablaClientes tbody", table);
       obtener_data_borrar("#tablaClientes tbody", table);
-      obtener_data_confirm("#tablaClientes tbody", table);
     }
     // ===  FIN CARGA LA TABLA CON DATOS ===
 
@@ -938,17 +940,6 @@
         var data = table.row($(this).parents("tr")).data();
         id = data['id'];
         eliminarCliente(id);
-      });
-    }
-
-    // Obtiene el ID para Eliminar un dato
-    var obtener_data_confirm = function(tbody, table) {
-      $(tbody).on("click", "button.btnConfirm", function() {
-        var data = table.row($(this).parents("tr")).data();
-        id = data['id'];
-        nombre = data['nombrepatinador'];
-        apellido = data['apellidopatinador'];
-        confirmarPreInscripcionID(id, nombre, apellido);
       });
     }
     // ===  FIN CARGA LA TABLA CON DATOS ===
@@ -984,7 +975,7 @@
       });
 
       fetch(
-          `api/pre_buenafe.php?id=${id}&opcion=${opcion}`, {
+          `../../api/buenafe.php?id=${id}&opcion=${opcion}`, {
             method: 'GET',
             headers: {
               Accept: "application/json",
@@ -1008,49 +999,11 @@
           $("#consultarCategoria").val(datos[0].categoria);
           $("#consultarDisciplina").val(datos[0].disciplina);
           $("#consultarApagar").val(datos[0].apagar);
-          $("#consultarApagar2").val(datos[0].apagar);
           $("#consultarPagado").val(datos[0].pagado);
           $("#consultarTorneo").val(datos[0].torneo);
           $("#observaciones").val(datos[0].observaciones);
           $("#consultarEstado").val(datos[0].estado);
-          $("#consultarDni2").val(datos[0].dnibuenafe);
-          $("#consultarDivisional2").val(datos[0].divisional);
-          $("#consultarDisciplina2").val(datos[0].disciplina);
-          $("#consultarEficiencia2").val(datos[0].eficiencia);
-          $("#consultarCategoria2").val(datos[0].categoria);
 
-          var valorDivisional = datos[0].divisional;
-          var selectElement = document.getElementById("consultarDivisional");
-          for (var i = 0; i < selectElement.options.length; i++) {
-            if (selectElement.options[i].text === valorDivisional) {
-              selectElement.options[i].selected = true;
-              break; // Romper el bucle una vez que se ha encontrado y seleccionado la opción
-            }
-          }
-
-          var valorDisciplina = datos[0].disciplina;
-          var selectElement = document.getElementById("consultarDisciplina");
-          var opcionDisciplina = document.createElement("option");
-          opcionDisciplina.value = valorDisciplina;
-          opcionDisciplina.text = valorDisciplina;
-          opcionDisciplina.selected = true; // Seleccionar esta opción
-          selectElement.appendChild(opcionDisciplina);
-
-          var valorEficiencia = datos[0].eficiencia;
-          var selectElement = document.getElementById("consultarEficiencia");
-          var opcionEficiencia = document.createElement("option");
-          opcionEficiencia.value = valorEficiencia;
-          opcionEficiencia.text = valorEficiencia;
-          opcionEficiencia.selected = true; // Seleccionar esta opción
-          selectElement.appendChild(opcionEficiencia);
-
-          var valorCategoria = datos[0].categoria;
-          var selectElement = document.getElementById("consultarCategoria");
-          var opcionCategoria = document.createElement("option");
-          opcionCategoria.value = valorCategoria;
-          opcionCategoria.text = valorCategoria;
-          opcionCategoria.selected = true; // Seleccionar esta opción
-          selectElement.appendChild(opcionCategoria);
 
           var alta = datos[0].nombrealta + ' ' + datos[0].apellidoalta + ' - ' + datos[0].newfechaalta
           if (datos[0].nombrealta === null || datos[0].nombrealta === '') {
@@ -1072,7 +1025,7 @@
     // === FIN CONSULTAR DATOS ===
 
     // === EDITA LOS DATOS en la BD by ID ===
-    var urlEdit = 'api/pre_buenafe.php';
+    var urlEdit = 'api/buenafe.php';
     // ===  FIN ACTUALIZAR DATOS ===
 
     // === ALTA de USUARIO ===
@@ -1082,9 +1035,6 @@
     }
 
     function altaNuevo() {
-      $("#altaDisciplina").empty();
-      $("#altaEficiencia").empty();
-      $("#altaCategoria").empty();
       $(".form-control").prop('disabled', false);
       $(".form-select").prop('disabled', false);
       $(".inactivo").prop('disabled', true);
@@ -1097,7 +1047,7 @@
 
       if (dni != '') {
         fetch(
-            `api/pre_buenafe.php?dni=${dni}&cuit=${CtaCteCUIT}&opcion=${opcion}`, {
+            `../../api/buenafe.php?dni=${dni}&opcion=${opcion}`, {
               method: "GET",
               headers: {
                 Accept: "application/json",
@@ -1121,7 +1071,7 @@
               Swal.fire({
                 icon: 'error',
                 title: 'Ups..!',
-                text: 'DNI no empadronado en este club!',
+                text: 'DNI no empadronado!',
               }).then((result) => {
                 // window.location.reload();
                 refresh();
@@ -1138,7 +1088,7 @@
       var datos = new FormData(formularioAlta);
 
       fetch(
-          'api/pre_buenafe.php', {
+          '../../api/buenafe.php', {
             method: 'POST',
             body: datos,
             headers: {
@@ -1172,200 +1122,8 @@
 
     // === FIN Alta USUARIO ===
 
-    // === CONSULTA SALDO DE LA CTA CTE === 
-    function consultarSaldo() {
-      saldo_institucion = 'inscripciones_users'
-      opcion = 11;
-      fetch(
-          `api/pre_buenafe.php?cuit=${CtaCteCUIT}&opcion=${opcion}`, {
-            method: 'GET',
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-          },
-        )
-        .then((respuesta) => respuesta.json())
-        .then((datos) => {
-          // Muestra el saldo segun el CUIT en el encabezado del MODAL
-          const saldoTexto = document.querySelector(".saldoTexto");
-          if (datos && datos.length > 0) {
-            saldoTexto.innerHTML = "Valorización Inscripciones Provisorias: " + '<span id="saldo" style="font-size: 20px;">$ ' + datos[0]['apagar'] + '</span>';
-
-            if (datos[0]['apagar'] > '0') {
-              document.querySelector('#saldo').style.color = 'red';
-            } else {
-              document.querySelector('#saldo').style.color = 'green';
-            }
-          } else {
-            saldoTexto.innerHTML = "Valorización Inscripciones Provisorias: " + '<span id="saldo" style="font-size: 20px;">' + "0,00" + '</span>';
-          }
-        });
-    }
-    // === FIN CONSULTA SALDO DE LA CTA CTE === 
-
-    // === CONFIRMAR EMPADRONAMIENTO por CUIT (TODO) === 
-    function confirmarPreInscripcion() {
-      Swal.fire({
-        title: 'Atención!',
-        text: "Esta por confirmar las Inscripciones Provisorias. Una vez confirmado ya no podrá realizar modificaciones sobre los patinadores. ACEPTAR para confirmar las inscripciones o CANCELAR",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Aceptar',
-        cancelButtonText: 'Cancelar'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          confirmarInscripcion()
-        };
-      });
-    }
-
-    function confirmarInscripcion() {
-      $('#modalLoading').modal('show');
-      opcion = 12;
-      fetch(
-          `api/pre_buenafe.php?cuit=${CtaCteCUIT}&opcion=${opcion}`, {
-            method: 'GET',
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-          },
-        )
-        .then((respuesta) => respuesta.json())
-        .then((datos) => {
-          setTimeout(function() {
-            $('#modalLoading').modal('hide');
-
-            if (datos == 1) {
-              Swal.fire({
-                icon: "success",
-                title: "Ok!",
-                text: "INSCRIPCION exitosa!!",
-              }).then((result) => {
-                window.location.reload();
-                // refresh();
-              });
-            } else {
-              $('#modalLoading').modal('hide');
-              Swal.fire({
-                icon: "error",
-                title: "Ups..!",
-                text: datos,
-              });
-            }
-
-          }, 1000);
-        });
-    }
-    // === FIN CONFIRMAR EMPADRONAMIENTO por CUIT === 
-
-    // === CONFIRMAR EMPADRONAMIENTO por ID (INDIVIDUAL) === 
-    function confirmarPreInscripcionID(id, nombre, apellido) {
-      Swal.fire({
-        title: 'Atención!',
-        html: `Confirmar la inscripción de:<br>` + `<b style="font-size: 25px;">` + nombre + " " + apellido + `</b>`,
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Aceptar',
-        cancelButtonText: 'Cancelar'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          confirmarInscripcionID(id)
-        };
-      });
-    }
-
-    function confirmarInscripcionID(id) {
-      $('#modalLoading').modal('show');
-      opcion = 13;
-      fetch(
-          `api/pre_buenafe.php?id=${id}&opcion=${opcion}`, {
-            method: 'GET',
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-          },
-        )
-        .then((respuesta) => respuesta.json())
-        .then((datos) => {
-          setTimeout(function() {
-            $('#modalLoading').modal('hide');
-
-            if (datos == 1) {
-              Swal.fire({
-                icon: "success",
-                title: "Ok!",
-                text: "INSCRIPCION exitosa!!",
-              }).then((result) => {
-                // window.location.reload();
-                refresh();
-              });
-            } else {
-              $('#modalLoading').modal('hide');
-              Swal.fire({
-                icon: "error",
-                title: "Ups..!",
-                text: datos,
-              });
-            }
-
-          }, 1000);
-        });
-    }
-    // === FIN CONFIRMAR EMPADRONAMIENTO por ID === 
-
-
-    // === CONSULTA VALOR DE LA LICENCIA PARA LAS ALTAS ===
-    function valorAltaTorneo() {
-      opcion = 7;
-      var nombreAltaTorneo = $("#altaTorneo").val();
-      // console.log(nombreAltaTorneo)
-      var urlLicencia = `api/torneos.php?torneo=${nombreAltaTorneo}&opcion=${opcion}`;
-      // console.log(urlLicencia)
-      fetch(urlLicencia, {
-          method: 'GET',
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        }, )
-        .then((respuesta) => respuesta.json())
-        .then((datos) => {
-          // console.log(datos)
-          $("#altaApagar").val(datos[0].valor);
-          $("#altaApagar2").val(datos[0].valor);
-        })
-    }
-
-    function valorConsultaTorneo() {
-      opcion = 6;
-      var nombreEditLicencia = $("#consultarLicencia").val();
-
-      var urlLicencia = `api/licencias.php?nombreLicencia=${nombreEditLicencia}&opcion=${opcion}`;
-
-      fetch(urlLicencia, {
-          method: 'GET',
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        }, )
-        .then((respuesta) => respuesta.json())
-        .then((datos) => {
-          $("#consultarValorLicencia").val(datos[0].valor);
-          $("#consultarValorLicencia2").val(datos[0].valor);
-        })
-    }
-    // === FIN CONSULTA VALOR DE LA LICENCIA PARA LAS ALTAS ===
-
     // === MOSTRAR - OCULTAR FILTRO ===
-    var valorFiltro = localStorage.mostrarFiltro_users_buenaFe;
+    var valorFiltro = localStorage.mostrarFiltro_buenaFe;
 
     function filtros() {
       if (valorFiltro == 1) {
@@ -1376,29 +1134,26 @@
     }
 
     function mostrarFiltros() {
-      var mostrarFiltro_users_buenaFe = 1;
+      var mostrarFiltro_buenaFe = 1;
       $('#mostrarFiltros').hide();
       $('#ocultarFiltros').show();
       $('.dtsp-panesContainer').show();
       $('.dtsb-searchBuilde').show();
-      localStorage.mostrarFiltro_users_buenaFe = mostrarFiltro_users_buenaFe;
+      localStorage.mostrarFiltro_buenaFe = mostrarFiltro_buenaFe;
     }
 
     function ocultarFiltros() {
-      var mostrarFiltro_users_buenaFe = 0;
+      var mostrarFiltro_buenaFe = 0;
       $('#mostrarFiltros').show();
       $('#ocultarFiltros').hide();
       $('.dtsp-panesContainer').hide();
       $('.dtsb-searchBuilder').hide();
-      localStorage.mostrarFiltro_buenaFe = mostrarFiltro_users_buenaFe;
+      localStorage.mostrarFiltro_buenaFe = mostrarFiltro_buenaFe;
     }
     // === FIN MOSTRAR - OCULTAR FILTRO ===
 
     function refresh() {
       table.ajax.reload(null, false);
-      if (saldo_institucion == "inscripciones_users") {
-        consultarSaldo();
-      }
     }
   </script>
 </body>

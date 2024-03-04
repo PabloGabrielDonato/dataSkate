@@ -49,7 +49,7 @@ if (!empty($_POST['dni']) && !empty($_POST['password'])) {
         // header("Location: /newproyect_Rio_v1/home.php");
         header("Location: admin/views/home.php");
       } else {
-        header("Location: users_home.php");
+        header("Location: users/views/users_home.php");
       }
     } else {
       $message = 'USUARIO BLOQUEADO: Contactar al administrador del sistema';

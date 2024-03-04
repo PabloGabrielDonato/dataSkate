@@ -15,7 +15,7 @@
           <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
             Cancelar
           </button>
-          <a class="btn btn-primary" href="logout.php">Salir</a>
+          <a class="btn btn-primary" href="../modulos/logout.php">Salir</a>
         </div>
       </div>
     </div>
