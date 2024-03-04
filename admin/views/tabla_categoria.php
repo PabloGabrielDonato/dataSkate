@@ -1,4 +1,4 @@
-<?php include('modulos/encabezado_user_admin.php'); ?>
+<?php include('../../modulos/encabezado_user_admin.php'); ?>
 
 
 <!DOCTYPE html>
@@ -20,11 +20,11 @@
   <!-- Boostrap Style -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- vendor css -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
   <!-- CSS adicional - propio -->
-  <link rel="stylesheet" href="assets/css/stylesplus.css" />
+  <link rel="stylesheet" href="../../assets/css/stylesplus.css" />
   <!-- fontawesome PRO -->
-  <script src="fw_pro.js" crossorigin="anonymous"></script>
+  <script src="../../fw_pro.js" crossorigin="anonymous"></script>
   <!-- DataTable -->
   <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css" rel="stylesheet" />
@@ -34,7 +34,7 @@
   <link rel="shortcut icon" href="assets/lepa.png">
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="shortcut icon" href="assets/rio_logo.png">
+  <link rel="shortcut icon" href="../../assets/rio_logo.png">
   <title>Rioplatense - Tabla Categoria</title>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -53,15 +53,15 @@
 <body class="">
 
   <!-- [ Header ] start -->
-  <?php include('modulos/header.php'); ?>
+  <?php include('../../modulos/header.php'); ?>
   <!-- [ Header ] end -->
 
   <!-- [ navigation menu ] start -->
-  <?php include('modulos/navmenu_tablas.php'); ?>
+  <?php include('../../modulos/navmenu_tablas.php'); ?>
   <!-- [ navigation menu ] end -->
 
   <!-- LOGOUT MPODAL-->
-  <?php include('modulos/logout.php'); ?>
+  <?php include('../../modulos/logout.php'); ?>
   <!-- End LOGOUT -->
 
   <!-- [ Main Content ] start -->
@@ -214,15 +214,15 @@
   <!-- Boostrap -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
   <!-- Required Js -->
-  <script src="assets/js/vendor-all.min.js"></script>
-  <script src="assets/js/plugins/bootstrap.min.js"></script>
-  <script src="assets/js/pcoded.min.js"></script>
+  <script src="../../assets/js/vendor-all.min.js"></script>
+  <script src="../../assets/js/plugins/bootstrap.min.js"></script>
+  <script src="../../assets/js/pcoded.min.js"></script>
 
   <!-- Apex Chart -->
-  <script src="assets/js/plugins/apexcharts.min.js"></script>
+  <script src="../../assets/js/plugins/apexcharts.min.js"></script>
 
   <!-- custom-chart js -->
-  <script src="assets/js/pages/dashboard-main.js"></script>
+  <script src="../../assets/js/pages/dashboard-main.js"></script>
 
   <!-- Datatable -->
   <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
@@ -243,11 +243,11 @@
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script> -->
 
   <!-- <script src="js/lecturaTabla_general.js"></script> -->
-  <script src="js/editarDatos_general.js"></script>
-  <script src="js/altas_general.js"></script>
-  <script src="js/eliminarByID.js"></script>
-  <script src="js/eliminaTodo.js"></script>
-  <script src="js/logout.js"></script>
+  <script src="../../js/editarDatos_general.js"></script>
+  <script src="../../js/altas_general.js"></script>
+  <script src="../../js/eliminarByID.js"></script>
+  <script src="../../js/eliminaTodo.js"></script>
+  <script src="../../js/logout.js"></script>
 
   <script>
     var id = 0;
@@ -264,7 +264,7 @@
       table = $("#tablaClientes").DataTable({
         ajax: {
           method: "GET",
-          url: "api/categorias.php",
+          url: "../../api/categorias.php",
           data: {
             opcion: opcion
           },
@@ -400,7 +400,7 @@
       });
       // consulta a base de datos según ID y opcion
       fetch(
-          `api/categorias.php?id=${id}&opcion=${opcion}`, {
+          `../../api/categorias.php?id=${id}&opcion=${opcion}`, {
             method: 'GET',
             headers: {
               Accept: "application/json",
@@ -439,11 +439,11 @@
     // === FIN CONSULTAR DATOS ===
 
     // === ACTUALIZA LOS DATOS en la BD by ID ===
-    var urlEdit = 'api/categorias.php';
+    var urlEdit = '../../api/categorias.php';
     // === FIN ACTUALIZAR DATOS ===
 
     // === ALTA de DATOS ===
-    var urlAlta = 'api/categorias.php';
+    var urlAlta = '../../api/categorias.php';
     // === FIN Alta DATOS ===
 
     function refresh() {

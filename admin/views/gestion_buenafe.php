@@ -1,4 +1,4 @@
-<?php include('modulos/encabezado_user_admin.php'); ?>
+<?php include('../../modulos/encabezado_user_admin.php'); ?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -19,13 +19,13 @@
   <!-- Boostrap Style -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- vendor css -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
   <!-- CSS adicional - propio -->
-  <link rel="stylesheet" href="assets/css/stylesplus.css" />
+  <link rel="stylesheet" href="../../assets/css/stylesplus.css" />
   <!-- CSS loading -->
-  <link rel="stylesheet" href="assets/css/loading.css" />
+  <link rel="stylesheet" href="../../assets/css/loading.css" />
   <!-- fontawesome PRO -->
-  <script src="fw_pro.js" crossorigin="anonymous"></script>
+  <script src="../../fw_pro.js" crossorigin="anonymous"></script>
   <!-- DataTable -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/searchpanes/2.1.0/css/searchPanes.dataTables.min.css">
@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/searchbuilder/1.4.0/css/searchBuilder.dataTables.min.css">
   <!-- Sweet Alert2 -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="shortcut icon" href="assets/rio_logo.png">
+  <link rel="shortcut icon" href="../../assets/rio_logo.png">
   <title>Rioplatense - Gestion Inscripciones</title>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -130,19 +130,19 @@
 <body class="">
 
   <!-- [ Header ] start -->
-  <?php include('modulos/header.php'); ?>
+  <?php include('../../modulos/header.php'); ?>
   <!-- [ Header ] end -->
 
   <!-- [ navigation menu ] start -->
-  <?php include('modulos/navmenu_tablas.php'); ?>
+  <?php include('../../modulos/navmenu_tablas.php'); ?>
   <!-- [ navigation menu ] end -->
 
   <!-- LOGOUT MPODAL-->
-  <?php include('modulos/logout.php'); ?>
+  <?php include('../../modulos/logout.php'); ?>
   <!-- End LOGOUT -->
 
   <!-- LOADING -->
-  <?php include('modulos/loading.php'); ?>
+  <?php include('../../modulos/loading.php'); ?>
   <!-- END LOADING -->
 
   <!-- [ Main Content ] start -->
@@ -737,13 +737,13 @@
     <!-- Boostrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Required Js -->
-    <script src="assets/js/vendor-all.min.js"></script>
-    <script src="assets/js/plugins/bootstrap.min.js"></script>
-    <script src="assets/js/pcoded.min.js"></script>
+    <script src="../../assets/js/vendor-all.min.js"></script>
+    <script src="../../assets/js/plugins/bootstrap.min.js"></script>
+    <script src="../../assets/js/pcoded.min.js"></script>
     <!-- Apex Chart -->
-    <script src="assets/js/plugins/apexcharts.min.js"></script>
+    <script src="../../assets/js/plugins/apexcharts.min.js"></script>
     <!-- custom-chart js -->
-    <script src="assets/js/pages/dashboard-main.js"></script>
+    <script src="../../assets/js/pages/dashboard-main.js"></script>
     <!-- Datatable -->
     <!-- libreria para mover columnas -->
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
@@ -762,11 +762,11 @@
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
 
-    <script src="js/relacionTablas.js"></script>
-    <script src="js/editarDatos_general.js"></script>
-    <script src="js/eliminarByID.js"></script>
+    <script src="../../js/relacionTablas.js"></script>
+    <script src="../../js/editarDatos_general.js"></script>
+    <script src="../../js/eliminarByID.js"></script>
     <!-- El eliminar TODO se ejecuta desde esta pagina -->
-    <script src="js/logout.js"></script>
+    <script src="../../js/logout.js"></script>
 
     <script>
       var fila = '';
@@ -792,7 +792,7 @@
         table = $("#tablaClientes").DataTable({
           ajax: {
             method: "GET",
-            url: "api/buenafe.php",
+            url: "../../api/buenafe.php",
             data: {
               opcion: opcion
             },
@@ -1079,7 +1079,7 @@
         });
 
         fetch(
-            `api/buenafe.php?id=${id}&opcion=${opcion}`, {
+            `../../api/buenafe.php?id=${id}&opcion=${opcion}`, {
               method: 'GET',
               headers: {
                 Accept: "application/json",
@@ -1162,7 +1162,7 @@
       // === FIN CONSULTAR DATOS ===
 
       // === EDITA LOS DATOS en la BD by ID ===
-      var urlEdit = 'api/buenafe.php';
+      var urlEdit = '../../api/buenafe.php';
       // ===  FIN ACTUALIZAR DATOS ===
 
       // === ALTA de USUARIO ===
@@ -1182,7 +1182,7 @@
 
         if (dni != '') {
           fetch(
-              `api/buenafe.php?dni=${dni}&opcion=${opcion}`, {
+              `../../api/buenafe.php?dni=${dni}&opcion=${opcion}`, {
                 method: "GET",
                 headers: {
                   Accept: "application/json",
@@ -1223,7 +1223,7 @@
         var datos = new FormData(formularioAlta);
 
         fetch(
-            'api/buenafe.php', {
+            '../../api/buenafe.php', {
               method: 'POST',
               body: datos,
               headers: {
@@ -1333,7 +1333,7 @@
           });
         } else {
           fetch(
-              `api/buenafe.php?opcion=${opcion}&torneo=${torneo}&cuit=${cuit}`, {
+              `../../api/buenafe.php?opcion=${opcion}&torneo=${torneo}&cuit=${cuit}`, {
                 method: 'GET',
                 headers: {
                   Accept: "application/json",
@@ -1413,7 +1413,7 @@
         formData.append('excel', excel);
 
         fetch(
-            'api/carga_excel_buenafe.php', {
+            '../../api/carga_excel_buenafe.php', {
               method: 'POST',
               body: formData,
               headers: {
@@ -1509,7 +1509,7 @@
           });
         } else {
           fetch(
-              `api/buenafe.php?opcion=${opcion}&torneoArchivar=${torneoArchivar}`, {
+              `../../api/buenafe.php?opcion=${opcion}&torneoArchivar=${torneoArchivar}`, {
                 method: 'GET',
                 headers: {
                   Accept: "application/json",
