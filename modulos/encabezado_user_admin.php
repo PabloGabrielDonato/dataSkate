@@ -34,5 +34,5 @@ if ($user['acceso'] != 'administrador') {
     // $mensajeAcceso = 'No tiene acceso a esta sección';
     // $_SESSION['valorAcceso'] = $valorAcceso;
     // $_SESSION['mensajeAcceso'] = $mensajeAcceso;
-    header("Location: users_home.php");
+    header("Location: users/users_home.php");
 }
